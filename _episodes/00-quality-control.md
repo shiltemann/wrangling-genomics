@@ -200,6 +200,14 @@ We will be working with a set of sample data that is located in a hidden directo
 will move some of these hidden files to the `data` directory your created at [the end of our
 last lesson](http://www.datacarpentry.org/shell-genomics/06-organization/).
 
+If you have not made this directory in the last lesson, you can do so now:
+
+~~~
+$ mkdir -p ~/dc_workshop/data
+~~~
+
+Now you are ready to copy the datasets:
+
 ~~~
 $ mv ~/.dc_sampledata_lite/untrimmed_fastq/ ~/dc_workshop/data/
 ~~~
