@@ -429,8 +429,8 @@ tabs in a single window or six separate browser windows.
 > worst?
 >
 >> ## Solution
->> `SRR097977` and `SRR098027` are the best. The other four
->> samples are all pretty bad.
+>> `SRR097977` and `SRR098027` are the worst. The other four
+>> samples are all pretty good.
 > {: .solution}
 {: .challenge}
 
