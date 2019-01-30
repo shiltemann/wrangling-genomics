@@ -249,11 +249,10 @@ $ cd ~/dc_workshop/data/untrimmed_fastq/
 > {: .solution}
 {: .challenge}
 
-To run the FastQC program, we need to tell our computer where the program is located
-(in `~/FastQC`).  FastQC can accept multiple file names as input, so we can use the *.fastq wildcard to run FastQC on all of the FASTQ files in this directory.
+FastQC can accept multiple file names as input, so we can use the *.fastq wildcard to run FastQC on all of the FASTQ files in this directory.
 
 ~~~
-$ ~/FastQC/fastqc *.fastq
+$ fastqc *.fastq
 ~~~
 {: .bash}
 
