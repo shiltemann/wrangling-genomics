@@ -284,7 +284,7 @@ Approx 85% complete for SRR098283.fastq
 Approx 90% complete for SRR098283.fastq
 Approx 95% complete for SRR098283.fastq
 Analysis complete for SRR098283.fastq
-dcuser@ip-172-31-58-54:~/dc_workshop/data/untrimmed_fastq$
+ubuntu@packer-Ubuntu-16:~/dc_workshop/data/untrimmed_fastq$
 ~~~
 {: .output}
 
@@ -317,7 +317,7 @@ will move these
 output files into a new directory within our `results/` directory.
 
 ~~~
-$ mkdir ~/dc_workshop/results/fastqc_untrimmed_reads
+$ mkdir -p ~/dc_workshop/results/fastqc_untrimmed_reads
 $ mv *.zip ~/dc_workshop/results/fastqc_untrimmed_reads/
 $ mv *.html ~/dc_workshop/results/fastqc_untrimmed_reads/
 ~~~
@@ -380,14 +380,14 @@ $ mkdir ~/Desktop/fastqc_html
 Now we can transfer our HTML files to our local computer using `scp`.
 
 ~~~
-$ scp dcuser@ec2-34-238-162-94.compute-1.amazonaws.com:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
+$ scp -i ~/.ssh/surfsara ubuntu@145.100.57.13:~/dc_workshop/results/fastqc_untrimmed_reads/*.html ~/Desktop/fastqc_html
 ~~~
 {: .bash}
 
 This looks really complicated, so let's break it down. The first part
-of the command `dcuser@ec2-34-238-162-94.compute-1.amazonaws.com` is
+of the command `ubuntu@145.100.57.13` is
 the address for your remote computer. Make sure you replace everything
-after `dcuser@` with your instance number (the one you used to log in).
+after `ubuntu@` with your instance IP (the one you used to log in).
 
 The second part starts with a `:` and then gives the absolute path
 of the files you want to transfer from your remote computer. Don't
