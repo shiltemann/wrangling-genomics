@@ -203,13 +203,14 @@ last lesson](http://www.datacarpentry.org/shell-genomics/06-organization/).
 If you have not made this directory in the last lesson, you can do so now:
 
 ~~~
-$ mkdir -p ~/dc_workshop/data
+$ mkdir -p ~/dc_workshop/data/
 ~~~
+{: .bash}
 
-Now you are ready to copy the datasets:
+Next, we will make a *symbolic link* from the data on the shared data image to the folder in your home directory:
 
 ~~~
-$ mv ~/.dc_sampledata_lite/untrimmed_fastq/ ~/dc_workshop/data/
+$ ln -s ~/.dc_sampledata_lite/untrimmed_fastq/* ~/dc_workshop/data/
 ~~~
 {: .bash}
 
