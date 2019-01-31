@@ -31,23 +31,7 @@ filter poor quality reads and trim poor quality bases from our samples.
 
 ## Trimmomatic Options
 
-Trimmomatic is a program written in the Java programming language.
-You don't need to learn Java to use Trimmomatic (FastQC is also
-written in Java), but the fact that it's a Java program helps
-explain the syntax that is used to run Trimmomatic. The basic
-command to run Trimmomatic starts like this:
-
-~~~
-$ java -jar trimmomatic-0.32.jar
-~~~
-{: .bash}
-
-`java` tells our computer that we're running a Java program. `-jar`
-is an option specifying that we're going to specify the location of
-the Java program we want to run. The Java program itself will have
-a `.jar` file extension.
-
-That's just the basic command, however. Trimmomatic has a variety of
+Trimmomatic has a variety of
 options and parameters. We will need to specify what options we want
 to use for our analysis. Here are some of the options:
 
@@ -77,17 +61,17 @@ analysis. It is important to understand the steps you are using to
 clean your data. For more information about the Trimmomatic arguments
 and options, see [the Trimmomatic manual](http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/TrimmomaticManual_V0.32.pdf).
 
-We said above that a basic command for Trimmomatic looks like this:
+A very basic command for Trimmomatic looks like this:
 
 ~~~
-$ java -jar trimmomatic-0.32.jar SE
+$ trimmomatic SE
 ~~~
 {: .bash}
 
 However, a complete command for Trimmomatic will look something like this:
 
 ~~~
-$ java -jar trimmomatic-0.32.jar SE -threads 4 -phred64 SRR_1056.fastq SRR_1056_trimmed.fastq ILLUMINACLIP:SRR_adapters.fa SLIDINGWINDOW:4:20
+$ trimmomatic SE -threads 4 -phred64 SRR_1056.fastq SRR_1056_trimmed.fastq ILLUMINACLIP:SRR_adapters.fa SLIDINGWINDOW:4:20
 ~~~
 {: .bash}
 
@@ -113,18 +97,15 @@ $ cd ~/dc_workshop/data/untrimmed_fastq
 {: .bash}
 
 We are going to run Trimmomatic on one of our single-end samples. We
-will use a sliding window of size 4 that will remove bases if their
-phred score is below 20 (like in our example above). We will also
+will use a sliding window of size 4 that will remove remaining bases if their average
+phred score in the window is below 20 (like in our example above). We will also
 discard any reads that do not have at least 20 bases remaining after
 this trimming step.
 
 ~~~
-$ java -jar ~/Trimmomatic-0.32/trimmomatic-0.32.jar SE SRR098283.fastq SRR098283.fastq_trim.fastq SLIDINGWINDOW:4:20 MINLEN:20
+$ trimmomatic SE SRR098283.fastq SRR098283.fastq_trim.fastq SLIDINGWINDOW:4:20 MINLEN:20
 ~~~
 {: .bash}
-
-Notice that we needed to give the absolute path to our copy of the
-Trimmomatic program.
 
 ~~~
 TrimmomaticSE: Started with arguments: SRR098283.fastq SRR098283.fastq_trim.fastq SLIDINGWINDOW:4:20 MINLEN:20
