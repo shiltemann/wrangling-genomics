@@ -107,6 +107,8 @@ $ trimmomatic SE SRR098283.fastq SRR098283.fastq_trim.fastq SLIDINGWINDOW:4:20 M
 ~~~
 {: .bash}
 
+It may take a few minutes for Trimmomatic to process the file, but the output should look something like this:
+
 ~~~
 TrimmomaticSE: Started with arguments: SRR098283.fastq SRR098283.fastq_trim.fastq SLIDINGWINDOW:4:20 MINLEN:20
 Automatically using 2 threads
@@ -171,7 +173,7 @@ quickly!
 $ for infile in *.fastq
 > do
 > outfile="${infile}"_trim.fastq
-> java -jar ~/Trimmomatic-0.32/trimmomatic-0.32.jar SE "${infile}" "${outfile}" SLIDINGWINDOW:4:20 MINLEN:20
+> trimmomatic SE "${infile}" "${outfile}" SLIDINGWINDOW:4:20 MINLEN:20
 > done
 ~~~
 {: .bash}
@@ -308,24 +310,24 @@ SRR098027.fastq_trim.fastq  SRR098283.fastq_trim.fastq
 >
 >> ## Solution
 >>
->> In your AWS terminal window do:
+>> In your cloud terminal window do:
 >>
 >> ~~~
->> $ ~/FastQC/fastqc ~/dc_workshop/data/trimmed_fastq
+>> $ fastqc ~/dc_workshop/data/trimmed_fastq
 >> ~~~
 >> {: .bash}
 >>
->> In a new tab in your terminal do:
+>> In a new tab in your local terminal do:
 >>
 >> ~~~
 >> $ mkdir ~/Desktop/fastqc_html/trimmed
->> $ scp dcuser@ec2-34-203-203-131.compute-1.amazonaws.com:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
+>> $ scp ubuntu@145.100.57.13:~/dc_workshop/data/trimmed_fastq/*.html ~/Desktop/fastqc_html/trimmed
 >> $ open ~/Desktop/fastqc_html/trimmed/*.html
 >> ~~~
 >> {: .bash}
 >>
 >> Remember to replace everything between the `@` and `:` in your scp
->> command with your AWS instance number.
+>> command with your cloud instance address.
 >>
 >> Before trimming, one of the sequences gave a warning and another
 >> failed the per base sequence quality test. After filtering, all
