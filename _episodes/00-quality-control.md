@@ -43,6 +43,7 @@ built under the assumption that the data will be provided in a specific format.
 The first step in the variant calling workflow is to take the FASTQ files received from the sequencing facility
 and assess the quality of the sequence reads.
 
+
 ![workflow_qc](../img/var_calling_workflow_qc.png)
 ## Details on the FASTQ format
 
@@ -59,6 +60,22 @@ include...
 
 We can view the first complete read in one of the files our dataset by using `head` to look at
 the first four lines.
+
+Our data is located in your home folder, in a directory named `dc_sample_data`. Let's use `cd` to go to this directory:
+
+~~~
+$ cd ~/dc_sample_data/untrimmed_fastq/
+$ ls
+~~~
+{: .bash}
+
+~~~
+SRR097977.fastq  SRR098026.fastq
+~~~
+{: .output}
+
+
+Now let's examine the contents of one of these files:
 
 ~~~
 $ head -n4 SRR098026.fastq
@@ -210,7 +227,7 @@ $ mkdir ~/dc_workshop/docs
 ~~~
 {: .bash}
 
-Next, we will make a *symbolic link* from the hidden directory to the project folders you made in your home directory. ln stands for link. Hardlinks typically only work for files (not directories), and they basically act as another name for the same data that is stored on your harddrive. However here, we use the -s flag, which stands for a symbolic link (symlink). A symlink creates a file that stores the path of another file. This allows you to access the information in that file with a new path without moving the data on your hard drive.
+We will make a *symbolic link* from the hidden directory to the project folders you made in your home directory. ln stands for link. Hardlinks typically only work for files (not directories), and they basically act as another name for the same data that is stored on your harddrive. However here, we use the -s flag, which stands for a symbolic link (symlink). A symlink creates a file that stores the path of another file. This allows you to access the information in that file with a new path without moving the data on your hard drive.
 
 Although copying our data would accomplish something similar, this way, the data only lives in one place on our hard drive, thereby taking up less space. This becomes important when your files become very large. Symbolic links allow you to have the data in one location on your hard drive, but call it from many.
 
