@@ -363,14 +363,14 @@ $ open SRR097977_fastqc.html
 ~~~
 {: .bash}
 
-However, if you try this on our AWS instance, you'll get an error:
+However, if you try this on our cloud instance, you'll get an error:
 
 ~~~
 Couldn't get a file descriptor referring to the console
 ~~~
 {: .output}
 
-This is because the AWS instance we're using doesn't have any web
+This is because the cloud instance we're using doesn't have any web
 browsers installed on it, so the remote computer doesn't know how to
 open the file. We want to look at the webpage summary reports, so
 let's transfer them to our local computers (i.e. your laptop).
@@ -460,8 +460,8 @@ tabs in a single window or six separate browser windows.
 
 Now that we've looked at our HTML reports to get a feel for the data,
 let's look more closely at the other output files. Go back to the tab
-in your terminal program that is connected to your AWS instance
-(the tab lab will start with `dcuser@ip`) and make sure you're in
+in your terminal program that is connected to your cloud instance
+(the prompt will start with `ubuntu@`) and make sure you're in
 our results subdirectory.
 
 ~~~
